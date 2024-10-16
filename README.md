@@ -30,7 +30,7 @@ import { readSMS } from 'react-native-get-sms-list';
 const result = await readSMS();
 ```
 
-or with optional args:
+Or with optional filters:
 
 ```js
 const filters = {
