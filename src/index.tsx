@@ -17,6 +17,13 @@ const GetSmsList = NativeModules.GetSmsList
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return GetSmsList.multiply(a, b);
+export interface readSMSArgs {
+  orderBy?: string;
+  minDate?: string;
+  maxDate?: string;
+}
+
+export function readSMS(args?: readSMSArgs): Promise<string[]> {
+  if (Platform.OS === 'android') return GetSmsList.readSMS(args ?? {});
+  else throw Platform.OS + ' is not supported!';
 }
