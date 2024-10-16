@@ -24,6 +24,5 @@ export interface readSMSArgs {
 }
 
 export function readSMS(args?: readSMSArgs): Promise<string[]> {
-  if (Platform.OS === 'android') return GetSmsList.readSMS(args ?? {});
-  else throw Platform.OS + ' is not supported!';
+  return GetSmsList.readSMS(args ?? {});
 }
