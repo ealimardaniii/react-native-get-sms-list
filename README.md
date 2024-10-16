@@ -28,7 +28,11 @@ import { readSMS } from 'react-native-get-sms-list';
 // ...
 
 const result = await readSMS();
-or;
+```
+
+or with optional args:
+
+```js
 const filters = {
   orderBy: 'date ASC',
   minDate: '1729080977971', // string timestamp
