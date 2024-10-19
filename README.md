@@ -22,27 +22,27 @@ Add permissions to your android/app/src/main/AndroidManifest.xml file:
 
 ## Usage
 
+**Without any filters:**
+
 ```js
 import { readSMS } from 'react-native-get-sms-list';
 
 // ...
 
-Without filters:
-
 const result = await readSMS();
 ```
 
-Or with optionals filters:
+**Or with optionals filters:**
 
 ```js
 const filters = {
   type: 'inbox', // 'inbox' (default) | 'sent' | 'draft' | 'outbox' | 'failed' | 'queued',
-  id: '1', // sms id,
+  id: '1', // specefic sms id,
   address: 'Google', // sms address like a phone number,
   orderBy: 'date ASC', // 'date asc' | 'date desc' | ...
   minDate: '1729080977971', // string timestamp
   maxDate: '1729080977971', // string timestamp
-  limit: 10, // return max 10 sms,
+  limit: 10, // return max 10 rows,
 };
 const result = await readSMS(filters);
 ```
