@@ -27,16 +27,22 @@ import { readSMS } from 'react-native-get-sms-list';
 
 // ...
 
+Without filters:
+
 const result = await readSMS();
 ```
 
-Or with optional filters:
+Or with optionals filters:
 
 ```js
 const filters = {
-  orderBy: 'date ASC',
+  type: 'inbox', // 'inbox' (default) | 'sent' | 'draft' | 'outbox' | 'failed' | 'queued',
+  id: '1', // sms id,
+  address: 'Google', // sms address like a phone number,
+  orderBy: 'date ASC', // 'date asc' | 'date desc' | ...
   minDate: '1729080977971', // string timestamp
-  // maxDate: '1729080977971', // string timestamp
+  maxDate: '1729080977971', // string timestamp
+  limit: 10, // return max 10 sms,
 };
 const result = await readSMS(filters);
 ```

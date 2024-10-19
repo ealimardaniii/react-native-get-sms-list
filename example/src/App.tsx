@@ -5,8 +5,8 @@ import { readSMS } from 'react-native-get-sms-list';
 export default function App() {
   useEffect(() => {
     readSMS({
-      orderBy: 'date ASC',
-      minDate: '1729080977971',
+      address: 'Google',
+      limit: 1,
     })
       .then((result) => console.log('SMS list result:', result))
       .catch((error) => console.error('SMS list error:', error));

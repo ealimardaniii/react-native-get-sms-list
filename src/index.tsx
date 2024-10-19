@@ -17,10 +17,22 @@ const GetSmsList = NativeModules.GetSmsList
       }
     );
 
+export type SMSTypes =
+  | 'inbox'
+  | 'sent'
+  | 'draft'
+  | 'outbox'
+  | 'failed'
+  | 'queued';
+
 export interface readSMSArgs {
+  type?: SMSTypes;
+  id?: string;
+  address?: string;
   orderBy?: string;
   minDate?: string;
   maxDate?: string;
+  limit?: number;
 }
 
 export function readSMS(args?: readSMSArgs): Promise<string[]> {
