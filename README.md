@@ -43,6 +43,7 @@ const filters = {
   minDate: '1729080977971', // string timestamp
   maxDate: '1729080977971', // string timestamp
   limit: 10, // return max 10 rows,
+  thread_id: '1', // return all sms on thread_id 1
 };
 const result = await readSMS(filters);
 ```

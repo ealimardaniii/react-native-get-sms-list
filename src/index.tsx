@@ -33,6 +33,7 @@ export interface readSMSArgs {
   minDate?: string;
   maxDate?: string;
   limit?: number;
+  thread_id?: string;
 }
 
 export function readSMS(args?: readSMSArgs): Promise<string[]> {

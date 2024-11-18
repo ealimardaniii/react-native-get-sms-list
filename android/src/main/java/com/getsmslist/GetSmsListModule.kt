@@ -45,7 +45,7 @@ class GetSmsListModule(private val reactContext: ReactApplicationContext) :
 
       val cursor = reactContext.contentResolver.query(
         Uri.parse("content://sms$boxType"),
-        arrayOf("_id", "address", "date", "body"),
+        arrayOf("_id", "address", "date", "body", "thread_id"),
         selection,
         selectionArgs,
         (options.getString("orderBy") ?: "date")  + limit
@@ -76,6 +76,11 @@ class GetSmsListModule(private val reactContext: ReactApplicationContext) :
       selectionArgs.add(id)
     }
 
+    options.getString("thread_id")?.let { thread_id ->
+      selectionParts.add("thread_id = ?")
+      selectionArgs.add(thread_id)
+    }
+
     options.getString("address")?.let { address ->
       selectionParts.add("address = ?")
       selectionArgs.add(address)
@@ -97,6 +102,7 @@ class GetSmsListModule(private val reactContext: ReactApplicationContext) :
           putString("address", it.getString(1))
           putString("date", it.getString(2))
           putString("body", it.getString(3))
+          putString("thread_id", it.getString(4))
         }
         array.pushMap(wm)
       }
