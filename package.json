@@ -183,5 +183,6 @@
     "type": "module-legacy",
     "languages": "kotlin-swift",
     "version": "0.41.2"
-  }
+  },
+  "types": "./index.d.ts"
 }
