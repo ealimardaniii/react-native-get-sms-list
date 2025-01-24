@@ -36,6 +36,15 @@ export interface readSMSArgs {
   thread_id?: string;
 }
 
-export function readSMS(args?: readSMSArgs): Promise<string[]> {
+export type SMS = {
+  address: string;
+  body: string;
+  date: string;
+  id: string;
+  thread_id: string;
+};
+
+
+export function readSMS(args?: readSMSArgs): Promise<SMS[]> {
   return GetSmsList.readSMS(args ?? {});
 }
